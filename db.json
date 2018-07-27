@@ -40,6 +40,12 @@
       "description": "produto 2",
       "price": 150,
       "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
     }
   ],
   "users": [

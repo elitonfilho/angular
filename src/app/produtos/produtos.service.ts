@@ -8,15 +8,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProdutosService {
+  url = "http://localhost:3000/products"
 
   constructor(private http: HttpClient) { }
 
   buscarTodos(): Observable<Produto[]> {
-    return this.http.get('http://localhost:3000/products').pipe(
-      map( (data:any[]) => {
-        const listarProdutos:Produto[] = new Array<Produto>()
+    return this.http.get(this.url).pipe(
+      map((data: any[]) => {
+        const listarProdutos: Produto[] = new Array<Produto>()
 
-        for (const item of data){
+        for (const item of data) {
           const produto = new Produto()
           produto.id = item.id
           produto.name = item.name
@@ -31,7 +32,7 @@ export class ProdutosService {
   }
 
   buscarPorId(id): Observable<Produto> {
-    return this.http.get('http://localhost:3000/products/' + id).pipe(
+    return this.http.get(`${this.url}/${id}`).pipe(
       map((data: any) => {
         const produto = new Produto()
         produto.id = data.id
@@ -43,6 +44,11 @@ export class ProdutosService {
     )
   }
 
-
-
+  criarProduto(produto: Produto): Observable<Boolean> {
+    return this.http.post(this.url, produto).pipe(
+      map(data => {
+        return true
+      })
+    )
+  }
 }
