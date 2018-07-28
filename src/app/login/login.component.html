@@ -1,0 +1,14 @@
+
+<section class="container">
+
+  <form [formGroup]="loginForm" (ngSubmit)="entrar()">
+    Usuário:
+    <input type="text" name="user" formControlName="user"/>
+    <br>
+    Senha:
+    <input type="password" name="password" formControlName="password"/>
+    <br>
+    <button>Entrar</button>
+  </form>
+
+</section>

@@ -11,8 +11,9 @@ import { ROTAS } from './routes';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoDetalheComponent } from './produtos/produto-detalhe/produto-detalhe.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { ProdutoNovoComponent } from './produtos/produto-novo/produto-novo.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProdutoNovoComponent } from './produtos/produto-novo/produto-novo.component';
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
   declarations: [
@@ -23,13 +24,15 @@ import { ProdutoNovoComponent } from './produtos/produto-novo/produto-novo.compo
     ContatoComponent,
     ProdutosComponent,
     ProdutoDetalheComponent,
-    ProdutoNovoComponent
+    ProdutoNovoComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROTAS),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

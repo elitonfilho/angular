@@ -7,9 +7,10 @@
       <nav id="menu">
         <a id="home" href="index.html">home</a>
         <a id="produtos" routerLink='/produtos'>Produtos</a>
-        <a id="galeria" href="galeria.html">galeria</a>
-        <a id="servicos" routerLink="/produtos/novo">Novo produto</a>
+        <a id="servicos" *ngIf="usuarioEstaLogado" routerLink="/produtos/novo">Novo produto</a>
         <a id="contato" routerLink='/contato'>contato</a>
+        <a id="login" *ngIf="!usuarioEstaLogado" routerLink='/login'>Login</a>
+        <a id="login" *ngIf="usuarioEstaLogado" (click)="sairDoSistema()">Logout</a>
       </nav>
     </div>
   </header>

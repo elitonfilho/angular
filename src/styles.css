@@ -86,6 +86,11 @@ body {
     background: #cd1fce;
     transition: background 1s;
   }
+  #menu #login {
+    border-bottom: 3px solid #2308d5;
+  }
+
+  
   
   #rodape {
     background: #000000;
