@@ -18,4 +18,3 @@ export const ROTAS: Routes = [
     },
     { path: 'login', component: LoginComponent}
 ]
-
