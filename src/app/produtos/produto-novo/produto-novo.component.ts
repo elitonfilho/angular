@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProdutoNovoComponent implements OnInit {
 
-  produto: Produto = new Produto
+  product: Produto = new Produto
 
   constructor(private produtoService: ProdutosService,
               private router: Router) { }
@@ -19,7 +19,7 @@ export class ProdutoNovoComponent implements OnInit {
   }
 
   salvarProduto() {
-    this.produtoService.criarProduto(this.produto).subscribe(
+    this.produtoService.criarProduto(this.product).subscribe(
       data => {
         this.router.navigate(['/produtos'])
       })

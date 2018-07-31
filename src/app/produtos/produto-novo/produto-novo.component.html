@@ -2,15 +2,15 @@
   <h1>Novo Produto</h1>
 
   <form>
-    Nome: <input type="text" name="name" [(ngModel)]="this.name" required minlength="3" #produtoNome="ngModel" />
+    Nome: <input type="text" name="name" [(ngModel)]="product.name" required minlength="3" #produtoNome="ngModel" />
 
     <div class="erro" *ngIf="produtoNome.dirty && produtoNome.errors?.required">Campo Obrigatório</div>
     <div class="erro" *ngIf="produtoNome.dirty && produtoNome.errors?.minlength">Nome do produto deve possuir no mínimo 3 caracteres</div>
 
     <br>
-    Descrição: <input type="text" name="description" [(ngModel)]="this.description"/>
+    Descrição: <input type="text" name="description" [(ngModel)]="product.description"/>
     <br>
-    Preco: <input type="text" name="price" [(ngModel)]="this.price" required #produtoPreco="ngModel"/>
+    Preco: <input type="text" name="price" [(ngModel)]="product.price" required #produtoPreco="ngModel"/>
     <div class="erro" *ngIf="produtoPreco.dirty && produtoPreco.errors?.required">Campo Obrigatório</div>
     <br>
     <button type="button" (click)="salvarProduto()">Salvar produto</button>

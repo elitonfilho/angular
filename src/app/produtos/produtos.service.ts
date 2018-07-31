@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { Produto } from './produtos.model';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutosService {
-  url = "http://localhost:3000/products"
+  url = `${environment.apiUrl}/produtos`
 
   constructor(private http: HttpClient) { }
 
@@ -20,9 +21,9 @@ export class ProdutosService {
         for (const item of data) {
           const produto = new Produto()
           produto.id = item.id
-          produto.name = item.name
-          produto.description = item.description
-          produto.price = item.price
+          produto.name = item.nome
+          produto.description = item.descricao
+          produto.price = item.preco
 
           listarProdutos.push(produto)
         }
@@ -36,9 +37,9 @@ export class ProdutosService {
       map((data: any) => {
         const produto = new Produto()
         produto.id = data.id
-        produto.name = data.name
-        produto.description = data.description
-        produto.price = data.price
+        produto.name = data.nome
+        produto.description = data.descricao
+        produto.price = data.preco
         return produto
       })
     )

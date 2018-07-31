@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { EventEmitter } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class AuthService {
   }
 
   fazerLogin(user: string, password: string): Observable<boolean> {
-    return this.http.get(`http://localhost:3000/users?user=${user}&password=${password}`).pipe(
+    return this.http.get(`${environment.apiUrl}/users?user=${user}&password=${password}`).pipe(
       map((data: any[]) => {
         if (data.length == 0) {
           return false
